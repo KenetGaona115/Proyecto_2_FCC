@@ -18,7 +18,6 @@ public class Calculadora_Conjuntos {
     static List<String> Universo = new ArrayList<>();
 
     public static void main(String[] args) {
-        // TODO code application logic here
         int opcion = -1;
         String Conjunto_1 = "";
         String Conjunto_2 = "";
@@ -27,12 +26,14 @@ public class Calculadora_Conjuntos {
         opcion = Integer.parseInt(JOptionPane.showInputDialog(null, "GENERAR CONJUTOS ALEATORIOS >>1\n"
                 + "INTRODUCIR A MANO >>2"));
         if (opcion == 1) {
+            //Leemos el tamaño del conjunto
             int a = Integer.parseInt(JOptionPane.showInputDialog(null, "ingrese el tamaño del conjunto A\n"));
+            //Llenamos el conjunto de numeros aleatorios
             for (int i = 0; i < a; i++) {
                 int b = (int) Math.floor(Math.random() * 101 + 1);
                 Conjunto_1 += "" + b + ",";
             }
-
+            //Miso proceso con el conjunto B
             int c = Integer.parseInt(JOptionPane.showInputDialog(null, "ingrese el tamaño del conjunto B\n"));
             for (int i = 0; i < c; i++) {
                 int b = (int) Math.floor(Math.random() * 101 + 1);
@@ -40,6 +41,7 @@ public class Calculadora_Conjuntos {
             }
 
         } else {
+            //Leemos los conjutos de la mano del usuario
             Conjunto_1 =JOptionPane.showInputDialog(null, "ingrese el conjunto A\n");
             Conjunto_2 =JOptionPane.showInputDialog(null, "ingrese el conjunto B\n");
         }
@@ -103,107 +105,8 @@ public class Calculadora_Conjuntos {
         System.out.print("Cardinalidad de B: ");
         Cardinalidad(B);
 
-        System.out.println("FIN DEL PROGRAMA");;
+        System.out.println("FIN DEL PROGRAMA");
 
-        /*
-         while (opcion != 0) {
-         opcion = Integer.parseInt(JOptionPane.showInputDialog("ELIGE UNA OPCION\n"
-         + "1.-Interseccion\n"
-         + "2.-Union\n"
-         + "3.-Diferencia A-B\n"
-         + "4.-Diferencia B-A\n"
-         + "5.-Diferencia simetrica A▲B\n"
-         + "6.-Complemento A\n"
-         + "7.-Complemento B\n"
-         + "8.-Producto carteciano AxB\n"
-         + "9.-Producto carteciano BxA\n"
-         + "10.-Producto carteciano AxA\n"
-         + "11.-Producto carteciano BxB\n"
-         + "12.-Conjunto potencia P(A)\n"
-         + "13.-Conjunto potencia P(B)\n"
-         + "14.-Cardinalidad |A|\n"
-         + "15.-Cardinalidad |b|\n"
-         + "SALIR >>0"));
-
-         //Llamamos a las funciones con las operaciones de cada uno de los conjuntos
-         switch (opcion) {
-         case 1:
-         Interseccion(A, B);
-         break;
-
-         case 2:
-         Union(A, B);
-         break;
-
-         case 3:
-         System.out.println("Diferencia A-B");
-         DiferenciaA(A, B);
-         break;
-
-         case 4:
-         System.out.println("Diferencia B-A");
-         DiferenciaB(B, A);
-
-         break;
-         case 5:
-         System.out.println("Diferencia simetrica");
-         DiferenciaSimetrica(A, B);
-         break;
-
-         case 6:
-         System.out.println("Complemento A");
-         Complemento(A);
-         break;
-
-         case 7:
-         System.out.println("Complemento B");
-         Complemento(B);
-         break;
-
-         case 8:
-         System.out.println("Producto carteciano AxB");
-         PrintResult(ProductoCarteciano(A, B));
-         break;
-
-         case 9:
-         System.out.println("Producto carteciano BxA");
-         PrintResult(ProductoCarteciano(B, A));
-         break;
-
-         case 10:
-         System.out.println("Producto carteciano AxA");
-         PrintResult(ProductoCarteciano(A, A));
-         break;
-
-         case 11:
-         System.out.println("Producto carteciano BxB");
-         PrintResult(ProductoCarteciano(B, B));
-         break;
-
-         case 12:
-         System.out.println("Conjunto potencia P(A)");
-         PrintResult(ConjuntoPotencia(A));
-         break;
-
-         case 13:
-         System.out.println("Conjunto potencia P(B)");
-         PrintResult(ConjuntoPotencia(B));
-         break;
-
-         case 14:
-         System.out.print("Cardinalidad de A: ");
-         Cardinalidad(A);
-         break;
-
-         case 15:
-         System.out.print("Cardinalidad de B: ");
-         Cardinalidad(B);
-         break;
-         default:
-         System.out.println("FIN DEL PROGRAMA");;
-         }
-         }
-         */
     }
 
     //DECLARAMOS LAS FUNCIONES
@@ -220,7 +123,8 @@ public class Calculadora_Conjuntos {
 
     public static void Union(List<String> A, List<String> B) {
         List<String> result = new ArrayList<>();
-
+        
+        //Agregamos todos los elementoa una lista
         for (String A1 : A) {
             result.add(A1);
         }
@@ -228,6 +132,7 @@ public class Calculadora_Conjuntos {
             result.add(B1);
         }
 
+        //Eliminamos los duplicados de la lista
         result = DeleteDuplicates(result);
         System.out.println("Resultado de la union");
         PrintResult(result);
